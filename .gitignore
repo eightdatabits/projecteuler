@@ -27,6 +27,12 @@
 *.out
 *.app
 
+# Build Files
+build/*
+
+# Output Files
+output/*
+
 # =========================
 # Operating System Files
 # =========================
