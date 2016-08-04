@@ -1,12 +1,12 @@
 
 #include <stdint.h>
 
-#include "ProblemFramework.h"
+#include "SolutionFramework.h"
 
-ProblemHook::ProblemHook( const uint32_t Number,
-                          const Problem::Solution_t Solution )
+SolutionHook::SolutionHook( const uint32_t Number,
+                          const Solution::SolutionFn_t SolutionFn )
 {
-    Problem prob( Number, Solution );
+    Solution soln( Number, SolutionFn );
 
-    ProblemList::instance().addProblem( prob );
+    SolutionList::instance().addSolution( soln );
 }

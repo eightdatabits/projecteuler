@@ -28,9 +28,9 @@ TARGET = euler.exe
 
 ### Source Files ###
 SOURCES = $(SOURCE_DIR)/main.cpp \
-          $(SOURCE_DIR)/Problem.cpp \
-          $(SOURCE_DIR)/ProblemList.cpp \
-          $(SOURCE_DIR)/ProblemHook.cpp \
+          $(SOURCE_DIR)/Solution.cpp \
+          $(SOURCE_DIR)/SolutionList.cpp \
+          $(SOURCE_DIR)/SolutionHook.cpp \
 		  $(wildcard $(SOURCE_DIR)/problem_*.cpp)
 
 OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(SOURCES:.cpp=.o)))

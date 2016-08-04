@@ -3,55 +3,55 @@
 
 #include <list>
 
-#define ADD_PROBLEM(num,soln) static ProblemHook s_Problem_##num( (num), (soln) )
+#define ADD_SOLUTION(num,soln) static SolutionHook s_Solution_##num( (num), (soln) )
 
 
-class Problem
+class Solution
 {
 public:
-    typedef void (*Solution_t)( void );
+    typedef void (*SolutionFn_t)( void );
 
-    Problem();
-    Problem( const uint32_t Number,
-             const Solution_t Solution );
-    ~Problem() {};
+    Solution();
+    Solution( const uint32_t Number,
+             const SolutionFn_t Solution );
+    ~Solution() {};
 
     uint32_t getNumber() const;
-    Solution_t getSolution() const;
+    SolutionFn_t getSolution() const;
 
     bool isValid() const;
 
 private:
 
     uint32_t m_number;
-    Solution_t m_solution;
+    SolutionFn_t m_solutionFn;
 };
 
 
-class ProblemList
+class SolutionList
 {
 public:
     // Get singleton instance
-    static ProblemList & instance();
+    static SolutionList & instance();
 
-    bool addProblem( const Problem &Prob );
-    bool getProblemByNumber( Problem *const pProb, const uint32_t Number ) const;
+    bool addSolution( const Solution &Soln );
+    bool getSolutionByNumber( Solution *const pSoln, const uint32_t Number ) const;
 
 private:
     // Singleton class, so make these private
-    ProblemList();
-    ProblemList( const ProblemList & );
-    ProblemList & operator =( const ProblemList & );
-    ~ProblemList() {};
+    SolutionList();
+    SolutionList( const SolutionList & );
+    SolutionList & operator =( const SolutionList & );
+    ~SolutionList() {};
 
-    std::list< Problem > m_problemList;
+    std::list< Solution > m_SolutionList;
 };
 
 
-class ProblemHook
+class SolutionHook
 {
 public:
-    ProblemHook( const uint32_t Number,
-                 const Problem::Solution_t Solution );
-    ~ProblemHook() {};
+    SolutionHook( const uint32_t Number,
+                 const Solution::SolutionFn_t Solution );
+    ~SolutionHook() {};
 };

@@ -3,7 +3,7 @@
 #include <iostream>
 #include <ctime>
 
-#include "ProblemFramework.h"
+#include "SolutionFramework.h"
 
 using namespace std;
 
@@ -11,20 +11,20 @@ int main( int argc, char *argv[] )
 {
     for( int32_t i = 0; i < argc; i++ ) {
         uint32_t cur_num = atoi( argv[ i ] );
-        Problem cur_prob;
+        Solution cur_soln;
 
-        if( ProblemList::instance().getProblemByNumber( &cur_prob, cur_num ) == true ) {
-            Problem::Solution_t soln = cur_prob.getSolution();
+        if( SolutionList::instance().getSolutionByNumber( &cur_soln, cur_num ) == true ) {
+            Solution::SolutionFn_t solnFn = cur_soln.getSolution();
 
             std::clock_t start = std::clock();
             double duration = 0.0;
 
-            soln();
+            solnFn();
 
             duration = static_cast< double >( std::clock() - start ) / (double)CLOCKS_PER_SEC;
 
             cout << "####################" << endl;
-            cout << "Problem " << cur_num << " time: " << duration << " ms" << endl;
+            cout << "Solution " << cur_num << " time: " << duration << " ms" << endl;
         }
     }
 

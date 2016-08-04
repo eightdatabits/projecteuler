@@ -2,33 +2,33 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "ProblemFramework.h"
+#include "SolutionFramework.h"
 
-Problem::Problem() :
+Solution::Solution() :
     m_number( 0 ),
-    m_solution( NULL )
+    m_solutionFn( NULL )
 {
 
 }
 
-Problem::Problem( const uint32_t Number,
-                  const Solution_t Solution ) :
+Solution::Solution( const uint32_t Number,
+                  const SolutionFn_t Solution ) :
     m_number( Number ),
-    m_solution( Solution )
+    m_solutionFn( Solution )
 {
 }
 
-uint32_t Problem::getNumber() const
+uint32_t Solution::getNumber() const
 {
     return m_number;
 }
 
-Problem::Solution_t Problem::getSolution() const
+Solution::SolutionFn_t Solution::getSolution() const
 {
-    return m_solution;
+    return m_solutionFn;
 }
 
-bool Problem::isValid() const
+bool Solution::isValid() const
 {
     bool isvalid = true;
 
@@ -36,7 +36,7 @@ bool Problem::isValid() const
         isvalid = false;
     }
 
-    if( m_solution == NULL ) {
+    if( m_solutionFn == NULL ) {
         isvalid = false;
     }
 

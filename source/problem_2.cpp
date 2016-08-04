@@ -1,7 +1,7 @@
 
 #include <iostream>
 
-#include "ProblemFramework.h"
+#include "SolutionFramework.h"
 
 using namespace std;
 
@@ -37,4 +37,4 @@ void problem_2_solution( void )
     cout << "Sum: " << sum << endl;
 }
 
-ADD_PROBLEM( 2, problem_2_solution );
+ADD_SOLUTION( 2, problem_2_solution );
