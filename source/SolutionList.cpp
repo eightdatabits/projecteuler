@@ -8,16 +8,11 @@
 
 using namespace std;
 
-// Ensure alignment and size are correct
-static uint32_t s_SolutionList_memory[ (sizeof(SolutionList) + sizeof(uint32_t)) / sizeof(uint32_t) ] = { 0 };
-static SolutionList *s_pSolutionList_ptr = NULL;
 SolutionList & SolutionList::instance()
 {
-    if( s_pSolutionList_ptr == NULL ) {
-        s_pSolutionList_ptr = new( &s_SolutionList_memory[ 0 ] ) SolutionList();
-    }
+    static SolutionList solution_list;
 
-    return *s_pSolutionList_ptr;
+    return solution_list;
 }
 
 SolutionList::SolutionList() :

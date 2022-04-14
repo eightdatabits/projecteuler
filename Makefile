@@ -10,7 +10,7 @@ RMDIR = rm -fr
 TOUCH = touch
 
 ### Build Flags ###
-CC_FLAGS = -Wall -Werror
+CC_FLAGS = -std=c++17 -Wall -Werror
 LINK_FLAGS =
 AR_FLAGS = rcs
 
@@ -24,7 +24,7 @@ SOURCE_DIR = ./source
 HEADER_DIR = ./include
 
 ### Output Files ###
-TARGET = euler.exe
+TARGET = euler
 
 ### Source Files ###
 SOURCES = $(SOURCE_DIR)/main.cpp \

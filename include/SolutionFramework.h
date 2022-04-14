@@ -17,7 +17,7 @@ public:
     ~Solution() {};
 
     uint32_t getNumber() const;
-    SolutionFn_t getSolution() const;
+    bool run() const;
 
     bool isValid() const;
 

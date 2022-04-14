@@ -1,6 +1,7 @@
 
 #include <stddef.h>
 #include <stdint.h>
+#include <iostream>
 
 #include "SolutionFramework.h"
 
@@ -23,9 +24,23 @@ uint32_t Solution::getNumber() const
     return m_number;
 }
 
-Solution::SolutionFn_t Solution::getSolution() const
+bool Solution::run() const
 {
-    return m_solutionFn;
+    if (!isValid())
+    {
+        return false;
+    }
+
+    std::clock_t start = std::clock();
+    double duration = 0.0;
+
+    m_solutionFn();
+
+    duration = static_cast< double >( std::clock() - start ) / (double)CLOCKS_PER_SEC;
+
+    std::cout << "Solution " << m_number << " time: " << duration << " ms" << std::endl;
+    std::cout << "####################" << std::endl;
+    return true;
 }
 
 bool Solution::isValid() const
